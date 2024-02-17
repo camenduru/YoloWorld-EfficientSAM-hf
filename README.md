@@ -1,5 +1,5 @@
 ---
-title: YOLO World
+title: YOLO-World + EfficientSAM
 emoji: 🔥
 colorFrom: purple
 colorTo: green
