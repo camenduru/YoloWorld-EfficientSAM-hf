@@ -45,3 +45,17 @@ def inference_with_box(
             max_predicted_iou = curr_predicted_iou
             selected_mask_using_predicted_iou = all_masks[m]
     return selected_mask_using_predicted_iou
+
+
+def inference_with_boxes(
+    image: np.ndarray,
+    xyxy: np.ndarray,
+    model: torch.jit.ScriptModule,
+    device: torch.device
+) -> np.ndarray:
+    masks = []
+    for [x_min, y_min, x_max, y_max] in xyxy:
+        box = np.array([[x_min, y_min], [x_max, y_max]])
+        mask = inference_with_box(image, box, model, device)
+        masks.append(mask)
+    return np.array(masks)
