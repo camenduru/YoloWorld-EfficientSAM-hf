@@ -307,4 +307,4 @@ with gr.Blocks() as demo:
         outputs=output_video_component
     )
 
-demo.launch(debug=False, show_error=True)
+demo.launch(debug=True, show_error=True, share=True)
